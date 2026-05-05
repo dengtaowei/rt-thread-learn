@@ -19,7 +19,7 @@ flowchart TD
     I --> J[开启 MMU + Cache]
     J --> K[master_core_startup]
     K --> L[rt_kmem_pvoff_set]
-    L --> M[跳转 rtthread_startup()]
+    L --> M[跳转到 rtthread_startup]
 ```
 
 该阶段已完成的初始化操作：
