@@ -1,0 +1,61 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "RT-Thread: Build qemu-vexpress-a9",
+      "type": "shell",
+      "command": "${workspaceFolder}/scripts/build-qemu-vexpress-a9.sh",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "RT-Thread: Run QEMU (gdb wait)",
+      "type": "shell",
+      "command": "${workspaceFolder}/scripts/run-qemu-vexpress-a9-gdb.sh",
+      "isBackground": true,
+      "problemMatcher": [
+        {
+          "pattern": {
+            "regexp": ".*"
+          },
+          "background": {
+            "activeOnStart": true,
+            "beginsPattern": ".*",
+            "endsPattern": "\\[qemu\\] waiting gdb on tcp::"
+          }
+        }
+      ],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "focus": false
+      }
+    },
+    {
+      "label": "RT-Thread: Build + Run QEMU (one-click)",
+      "type": "shell",
+      "command": "${workspaceFolder}/scripts/dev-qemu-vexpress-a9.sh",
+      "isBackground": true,
+      "problemMatcher": [
+        {
+          "pattern": {
+            "regexp": ".*"
+          },
+          "background": {
+            "activeOnStart": true,
+            "beginsPattern": ".*",
+            "endsPattern": "\\[qemu\\] waiting gdb on tcp::"
+          }
+        }
+      ],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "focus": false
+      }
+    }
+  ]
+}
